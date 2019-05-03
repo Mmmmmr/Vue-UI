@@ -1,8 +1,10 @@
 <template>
-  <button class="gulu-button">
-    <guluIcon :name="icon"></guluIcon>
-    <guluIcon name="loading" class="loading" v-if="loading" @click="sonM"></guluIcon>
-    <slot></slot>
+  <button class="gulu-button" :class="{[`icon-${iconPostion}`]: true}" @click="$emit('x')">
+    <guluIcon :name="icon" class="icon" v-if="!loading && icon"></guluIcon>
+    <guluIcon name="loading"  class="loading icon" v-if="loading" ></guluIcon>
+    <div class="gulu-button-content">
+      <slot></slot>
+    </div>
   </button>
 </template>
 
@@ -15,15 +17,17 @@ export default {
     loading: {
       type: Boolean,
       default: false
+    },
+    iconPostion: {
+      type: String,
+      default: 'left',
+      validator: function(value){
+        return value === 'left' || value === 'right'
+      }
     }
   },
   components: {
     guluIcon
-  },
-  methods: {
-    sonM: function(){
-      this.$emit('fatherMethod')
-    }
   }
 };
 </script>
@@ -47,6 +51,7 @@ export default {
   display: inline-flex;
   justify-content: center;
   align-items: center;
+  vertical-align: middle;
   color: #333;
   &:hover {
     border-color: #666;
@@ -59,6 +64,20 @@ export default {
   }
   > .loading {
     animation: spin 2s infinite linear;
+  }
+  > .icon {
+    order: 1;
+  }
+  > .gulu-button-content {
+    order: 2;
+  }
+  &.icon-right {
+    > .icon {
+      order: 2;
+    }
+    > .gulu-button-content {
+      order: 1;
+    }
   }
 }
 </style>
