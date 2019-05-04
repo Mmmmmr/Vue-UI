@@ -1,7 +1,7 @@
 <template>
   <button class="gulu-button" :class="{[`icon-${iconPostion}`]: true}" @click="$emit('x')">
     <guluIcon :name="icon" class="icon" v-if="!loading && icon"></guluIcon>
-    <guluIcon name="loading"  class="loading icon" v-if="loading" ></guluIcon>
+    <guluIcon name="loading" class="loading icon" v-if="loading"></guluIcon>
     <div class="gulu-button-content">
       <slot></slot>
     </div>
@@ -20,9 +20,9 @@ export default {
     },
     iconPostion: {
       type: String,
-      default: 'left',
-      validator: function(value){
-        return value === 'left' || value === 'right'
+      default: "left",
+      validator: function(value) {
+        return value === "left" || value === "right";
       }
     }
   },

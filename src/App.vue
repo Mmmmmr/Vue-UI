@@ -1,24 +1,35 @@
 <template>
   <div id="app">
-    <guluButton icon="setting" iconPostion="left" :loading="loading" @x="reserve">设置</guluButton>
-    <guluButton icon="down" iconPostion="right">点我启动</guluButton>
-    <guluButton icon="down" iconPostion="asdasdsad">点我启动</guluButton>
+    <div class="box">
+      <guluButton icon="setting" iconPostion="left" :loading="loading" @x="reserve">设置</guluButton>
+      <guluButton icon="down" iconPostion="right">点我启动</guluButton>
+      <guluButton icon="down" iconPostion="left">点我启动</guluButton>
+    </div>
 
+    <div class="box">
+      <guluButtonGroup>
+        <guluButton icon="left" >前进</guluButton>
+        <guluButton>更多</guluButton>
+        <guluButton icon="right" iconPostion="right">后退</guluButton>
+      </guluButtonGroup>
+    </div>
   </div>
 </template>
 
 <script>
 import guluButton from "../src/components/button/button";
+import guluButtonGroup from "../src/components/button/ButtonGroup";
 
 export default {
   name: "app",
   components: {
-    guluButton
+    guluButton,
+    guluButtonGroup
   },
-  data: function(){
+  data: function() {
     return {
       loading: true
-    }
+    };
   },
   methods: {
     reserve() {
@@ -29,4 +40,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.box {
+  margin: 10px;
+}
 </style>
+ 
