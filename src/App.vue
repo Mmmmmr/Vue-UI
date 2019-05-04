@@ -17,7 +17,7 @@
 </template>
 
 <script>
-import guluButton from "../src/components/button/button";
+import guluButton from "../src/components/button/Button";
 import guluButtonGroup from "../src/components/button/ButtonGroup";
 
 export default {
