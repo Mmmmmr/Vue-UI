@@ -8,7 +8,7 @@
 
     <div class="box">
       <guluButtonGroup>
-        <guluButton icon="left" >前进</guluButton>
+        <guluButton icon="left">前进</guluButton>
         <guluButton>更多</guluButton>
         <guluButton icon="right" iconPostion="right">后退</guluButton>
       </guluButtonGroup>
